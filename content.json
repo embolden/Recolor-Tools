@@ -1,0 +1,102 @@
+{
+    "Format": "1.11",
+    "ConfigSchema": {
+    //Allows the scythe to be recolored
+	 "ScytheColorEnabled": {
+            "AllowValues": "true, false",
+			"Default": "true"
+        },
+	//Choose the color of the scythe
+     "ScytheColor": {
+            "AllowValues": "base, copper, iron, gold, iridium",
+			"Default": "base"
+        },
+	//Allows the Golden Scythe to be recolored	
+	"BigScytheColorEnabled": {
+            "AllowValues": "true, false",
+			"Default": "true"
+        },
+	//Choose the color of the scythe
+     "BigScytheColor": {
+            "AllowValues": "gold, iridium",
+			"Default": "gold"
+        },
+	//Allows the Copper Pan to be recolored
+     "PanColorEnabled": {
+            "AllowValues": "true, false",
+			"Default": "true"
+        },
+	//Choose the color of the pan
+	 "PanColor": {
+            "AllowValues": "base, copper, iron, gold, iridium",
+			"Default": "base"
+        },
+	//Allows the Milk Pail to be recolored
+     "PailColorEnabled": {
+            "AllowValues": "true, false",
+			"Default": "true"
+        },
+	//Choose the color of the pail
+	"PailColor": {
+            "AllowValues": "base, copper, iron, gold, iridium",
+			"Default": "base"
+        },
+	//Allows the Shears to be recolored
+     "ShearsColorEnabled": {
+            "AllowValues": "true, false",
+			"Default": "true"
+        },
+	//Choose the color of the shears
+	"ShearsColor": {
+            "AllowValues": "base, copper, iron, gold, iridium",
+			"Default": "base"
+        },	
+    },
+  "Changes": [
+       //Scythe recolor
+	   {
+			"Action": "EditImage",
+			"Target": "Tilesheets/weapons",
+			"FromFile": "assets/ScythePan_{{ScytheColor}}.png",
+			"FromArea": { "X": 0, "Y": 0, "Width": 16, "Height": 16 },
+			"ToArea": { "X": 112, "Y": 80, "Width": 16, "Height": 16 },
+			"Enabled": "{{ScytheColorEnabled}}"
+       },
+	   //Golden Scythe recolor
+	   {
+			"Action": "EditImage",
+			"Target": "Tilesheets/weapons",
+			"FromFile": "assets/BigScythe_{{BigScytheColor}}.png",
+			"FromArea": { "X": 0, "Y": 0, "Width": 16, "Height": 16 },
+			"ToArea": { "X": 80, "Y": 96, "Width": 16, "Height": 16 },
+			"Enabled": "{{BigScytheColorEnabled}}"
+       },
+       //Copper Pan recolor
+	   {
+			"Action": "EditImage",
+			"Target": "Tilesheets/tools",
+			"FromFile": "assets/ScythePan_{{PanColor}}.png",
+			"FromArea": { "X": 0, "Y": 16, "Width": 14, "Height": 12 },
+			"ToArea": { "X": 193, "Y": 3, "Width": 14, "Height": 12 },
+			"Enabled": "{{PanColorEnabled}}"
+       },
+	   //Milk Pail recolor
+	   {
+			"Action": "EditImage",
+			"Target": "Tilesheets/tools",
+			"FromFile": "assets/PailShears_{{PailColor}}.png",
+			"FromArea": { "X": 0, "Y": 0, "Width": 16, "Height": 16 },
+			"ToArea": { "X": 96, "Y": 0, "Width": 16, "Height": 16 },
+			"Enabled": "{{PailColorEnabled}}"
+       },
+	   //Shears recolor
+	   {
+			"Action": "EditImage",
+			"Target": "Tilesheets/tools",
+			"FromFile": "assets/PailShears_{{ShearsColor}}.png",
+			"FromArea": { "X": 0, "Y": 16, "Width": 16, "Height": 16 },
+			"ToArea": { "X": 112, "Y": 0, "Width": 16, "Height": 16 },
+			"Enabled": "{{ShearsColorEnabled}}"
+       }
+   ]
+}
