@@ -1,0 +1,125 @@
+{
+  "Format": "1.19.0",
+
+  "ConfigSchema": {
+    "PanColorEnabled": {
+      "AllowValues": "true, false",
+      "Default": "true",
+      "Description": "Allow the Copper Pan to be recolored."
+    },
+    "PanColor": {
+      "AllowValues": "auto, Base, Copper, Iron, Gold, Iridium",
+      "Default": "auto",
+      "Description": "Choose the color of the Pan. Auto is based on skill."
+    },
+    "Base": {
+      "Default": "#f0b461"
+    },
+    "Copper": {
+      "Default": "#cb7348"
+    },
+    "Iron": {
+      "Default": "#e2e2e2"
+    },
+    "Gold": {
+      "Default": "#f7b636"
+    },
+    "Iridium": {
+      "Default": "#a28ae9"
+    }
+  },
+
+  "DynamicTokens": [
+    {
+      "Name": "DPanColor",
+      "Value": "{{PanColor}}",
+      "When": {
+        "PanColor": "Base, Copper, Iron, Gold, Iridium"
+      }
+    },
+    {
+      "Name": "DPanColor",
+      "Value": "{{Base}}",
+      "When": {
+        "PanColor": "auto"
+      }
+    },
+    {
+      "Name": "DPanColor",
+      "Value": "{{Copper}}",
+      "When": {
+        "SkillLevel:Fishing": "3, 4",
+        "PanColor": "auto"
+      }
+    },
+    {
+      "Name": "DPanColor",
+      "Value": "{{Iron}}",
+      "When": {
+        "SkillLevel:Fishing": "5, 6",
+        "PanColor": "auto"
+      }
+    },
+    {
+      "Name": "DPanColor",
+      "Value": "{{Gold}}",
+      "When": {
+        "SkillLevel:Fishing": "7, 8",
+        "PanColor": "auto"
+      }
+    },
+    {
+      "Name": "DPanColor",
+      "Value": "{{Iridium}}",
+      "When": {
+        "SkillLevel:Fishing": "9, 10",
+        "PanColor": "auto"
+      }
+    }
+  ],
+
+  "Changes": [
+    {
+      "Action": "EditImage",
+      "Target": "Characters/Farmer/farmer_base",
+      "FromFile": "{{Candidus42.ImagEd/Recolor: themattfiles.RecolorCopperPan, {{Target}}, gamecontent, assets/Characters/Farmer/farmer_base.png, {{DPanColor}}, DesaturateHSV}}",
+      "PatchMode": "Overlay",
+      "Enabled": "{{PanColorEnabled}}"
+    },
+    {
+      "Action": "EditImage",
+      "Target": "Characters/Farmer/farmer_base_bald",
+      "FromFile": "{{Candidus42.ImagEd/Recolor: themattfiles.RecolorCopperPan, {{Target}}, gamecontent, assets/Characters/Farmer/farmer_base_bald.png, {{DPanColor}}, DesaturateHSV}}",
+      "PatchMode": "Overlay",
+      "Enabled": "{{PanColorEnabled}}"
+    },
+    {
+      "Action": "EditImage",
+      "Target": "Characters/Farmer/farmer_girl_base",
+      "FromFile": "{{Candidus42.ImagEd/Recolor: themattfiles.RecolorCopperPan, {{Target}}, gamecontent, assets/Characters/Farmer/farmer_girl_base.png, {{DPanColor}}, DesaturateHSV}}",
+      "PatchMode": "Overlay",
+      "Enabled": "{{PanColorEnabled}}"
+    },
+    {
+      "Action": "EditImage",
+      "Target": "Characters/Farmer/farmer_girl_base_bald",
+      "FromFile": "{{Candidus42.ImagEd/Recolor: themattfiles.RecolorCopperPan, {{Target}}, gamecontent, assets/Characters/Farmer/farmer_girl_base_bald.png, {{DPanColor}}, DesaturateHSV}}",
+      "PatchMode": "Overlay",
+      "Enabled": "{{PanColorEnabled}}"
+    },
+    {
+      "Action": "EditImage",
+      "Target": "Characters/Farmer/hats",
+      "FromFile": "{{Candidus42.ImagEd/Recolor: themattfiles.RecolorCopperPan, {{Target}}, gamecontent, assets/Characters/Farmer/hats.png, {{DPanColor}}, DesaturateHSV}}",
+      "PatchMode": "Overlay",
+      "Enabled": "{{PanColorEnabled}}"
+    },
+    {
+      "Action": "EditImage",
+      "Target": "Tilesheets/tools",
+      "FromFile": "{{Candidus42.ImagEd/Recolor: themattfiles.RecolorCopperPan, {{Target}}, gamecontent, assets/TileSheets/tools.png, {{DPanColor}}, DesaturateHSV}}",
+      "PatchMode": "Overlay",
+      "Enabled": "{{PanColorEnabled}}"
+    }
+  ]
+}
