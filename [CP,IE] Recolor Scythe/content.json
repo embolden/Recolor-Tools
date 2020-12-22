@@ -1,0 +1,162 @@
+{
+  "Format": "1.19.0",
+
+  "ConfigSchema": {
+    "ScytheColorEnabled": {
+      "AllowValues": "true, false",
+      "Default": "true",
+      "Description": "Allow the Scythe to be recolored."
+    },
+    "ScytheColor": {
+      "AllowValues": "auto, Base, Copper, Iron, Gold, Iridium",
+      "Default": "auto",
+      "Description": "Choose the color of the Scythe. Auto is based on skill."
+    },
+    "GoldenScytheColorEnabled": {
+      "AllowMultiple": "false",
+      "AllowValues": "true, false",
+      "Default": "true",
+      "Description": "Allows the Golden Scythe to be recolored"
+    },
+    "GoldenScytheColor": {
+      "AllowValues": "auto, Base, Copper, Iron, Gold, Iridium",
+      "Default": "auto",
+      "Description": "Choose the color of the Golden Scythe. Auto is based on skill."
+    },
+    "Base": {
+      "Default": "#f0b461"
+    },
+    "Copper": {
+      "Default": "#cb7348"
+    },
+    "Iron": {
+      "Default": "#e2e2e2"
+    },
+    "Gold": {
+      "Default": "#f7b636"
+    },
+    "Iridium": {
+      "Default": "#a28ae9"
+    }
+  },
+
+  "DynamicTokens": [
+    {
+      "Name": "DScytheColor",
+      "Value": "{{ScytheColor}}",
+      "When": {
+        "ScytheColor": "Base, Copper, Iron, Gold, Iridium"
+      }
+    },
+    {
+      "Name": "DScytheColor",
+      "Value": "{{Base}}",
+      "When": {
+        "ScytheColor": "auto"
+      }
+    },
+    {
+      "Name": "DScytheColor",
+      "Value": "{{Copper}}",
+      "When": {
+        "SkillLevel:Farming": "3, 4",
+        "ScytheColor": "auto"
+      }
+    },
+    {
+      "Name": "DScytheColor",
+      "Value": "{{Iron}}",
+      "When": {
+        "SkillLevel:Farming": "5, 6",
+        "ScytheColor": "auto"
+      }
+    },
+    {
+      "Name": "DScytheColor",
+      "Value": "{{Gold}}",
+      "When": {
+        "SkillLevel:Farming": "7, 8",
+        "ScytheColor": "auto"
+      }
+    },
+    {
+      "Name": "DScytheColor",
+      "Value": "{{Iridium}}",
+      "When": {
+        "SkillLevel:Farming": "9, 10",
+        "ScytheColor": "auto"
+      }
+    },
+
+    {
+      "Name": "DGoldenScytheColor",
+      "Value": "{{GoldenScytheColor}}",
+      "When": {
+        "ScytheColor": "Base, Copper, Iron, Gold, Iridium"
+      }
+    },
+    {
+      "Name": "DGoldenScytheColor",
+      "Value": "{{Base}}",
+      "When": {
+        "ScytheColor": "auto"
+      }
+    },
+    {
+      "Name": "DGoldenScytheColor",
+      "Value": "{{Copper}}",
+      "When": {
+        "SkillLevel:Farming": "3, 4",
+        "ScytheColor": "auto"
+      }
+    },
+    {
+      "Name": "DGoldenScytheColor",
+      "Value": "{{Iron}}",
+      "When": {
+        "SkillLevel:Farming": "5, 6",
+        "ScytheColor": "auto"
+      }
+    },
+    {
+      "Name": "DGoldenScytheColor",
+      "Value": "{{Gold}}",
+      "When": {
+        "SkillLevel:Farming": "7, 8",
+        "ScytheColor": "auto"
+      }
+    },
+    {
+      "Name": "DGoldenScytheColor",
+      "Value": "{{Iridium}}",
+      "When": {
+        "SkillLevel:Farming": "9, 10",
+        "ScytheColor": "auto"
+      }
+    }
+  ],
+
+  "Changes": [
+    {
+      "Action": "EditImage",
+      "Target": "TileSheets/weapons",
+      "Enabled": "{{ScytheColorEnabled}}",
+
+      "FromFile": "{{Candidus42.ImagEd/Recolor: themattfiles.RecolorScythe, {{Target}}, gamecontent, assets/TileSheets/scythe-mask.png, {{DScytheColor}}, DesaturateHSV}}",
+      "PatchMode": "Overlay",
+      "FromArea": { "X": 112, "Y": 80, "Width": 16, "Height": 16 },
+      "ToArea": { "X": 112, "Y": 80, "Width": 16, "Height": 16 }
+    },
+
+    {
+      "Action": "EditImage",
+      "Target": "TileSheets/weapons",
+      "Enabled": "{{GoldenScytheColorEnabled}}",
+
+      "FromFile": "{{Candidus42.ImagEd/Recolor: themattfiles.RecolorScythe, {{Target}}, gamecontent, assets/TileSheets/golden-scythe-mask.png, {{DGoldenScytheColor}}, DesaturateHSV}}",
+      "PatchMode": "Overlay",
+      "FromArea": { "X": 80, "Y": 96, "Width": 16, "Height": 16 },
+      "ToArea": { "X": 80, "Y": 96, "Width": 16, "Height": 16 }
+    }
+  ]
+}

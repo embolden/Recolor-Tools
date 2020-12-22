@@ -1,0 +1,17 @@
+{
+  "Name": "Recolor Shears",
+  "Author": "themattfiles",
+  "Version": "1.0.0",
+  "Description": "Color the Shears to match your skill.",
+  "UniqueID": "themattfiles.RecolorShears",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher",
+    "MinimumVersion": "1.19.0"
+  },
+  "Dependencies": [
+    {
+      "UniqueID": "Candidus42.ImagEd",
+      "IsRequired": "true"
+    }
+  ]
+}
